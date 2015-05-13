@@ -20,7 +20,7 @@ function randomPlay() {
 ////////////////////////////////////////////////
 /*           Write Your Code Below            */
 ////////////////////////////////////////////////
-
+randomPlay();
 function getPlayerMove(move) {
     return move || getInput();
 }
