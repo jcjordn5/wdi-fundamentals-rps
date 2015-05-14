@@ -1,8 +1,4 @@
-////////////////////////////////////////////////
-/*   Provided Code - Please Don't Edit   */
-////////////////////////////////////////////////
 'use strict';
-
 function getInput() {
     console.log("Please choose either 'rock', 'paper', or 'scissors'.")
     return prompt();
@@ -20,20 +16,19 @@ function randomPlay() {
 ////////////////////////////////////////////////
 /*           Write Your Code Below            */
 ////////////////////////////////////////////////
-randomPlay();
+
 function getPlayerMove(move) {
     return move || getInput();
 }
 
 function getComputerMove(move) {
-    return move || randomPlay();
+  return move || randomPlay();
 }
-var playerMove = getPlayerMove();
-var computerMove = getComputerMove();
+
 
 function getWinner(playerMove,computerMove) {
     var winner;
-if (playerMove === computerMove) {
+    if (playerMove === computerMove) {
         winner = "tie";
     }
     else if (playerMove === "rock"){
@@ -59,16 +54,29 @@ if (playerMove === computerMove) {
         else if (computerMove === "paper") {
             winner = "player";
         }
-    }
-    return winner;
+    }return winner;
 }
 
 function playToFive() {
     console.log("Let's play Rock, Paper, Scissors");
     var playerWins = 0;
     var computerWins = 0;
-    // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
-    /* YOUR CODE HERE */
-    return [playerWins, computerWins];
-}
+    while (playerWins < 5 && computerWins < 5){
+    var playerMove = getPlayerMove();
+    var computerMove = getComputerMove();
+    var outcome = getWinner(playerMove,computerMove);
+            if (outcome === "player"){
+            playerWins += 1;
+        }
+        else if (outcome === "computer") {
+            computerWins += 1;
+        }
+       
+        console.log("Player has chosen '" + playerMove + "' the computer has chosen '" + computerMove + "'.");
+        console.log("Winner is: " + outcome + ".");
+        console.log("The score " + playerWins + " to " + computerWins + ".\n");
+    }
 
+        return [playerWins, computerWins];
+    }
+playToFive();
